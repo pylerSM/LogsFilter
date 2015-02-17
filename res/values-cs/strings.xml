@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Filtr záznamů</string>
+    <string name="app_description">Filtrovat soukromé informace ze záznamů</string>
+    <string name="app_settings">Nastavení filtru záznamů</string>
+    <string name="logs">Záznamy</string>
+    <string name="logs_filter">Filtr záznamů</string>
+    <string name="logs_filter_add">Přidat položku do filtru</string>
+    <string name="logs_filter_manage">Spravovat položky ve filtru</string>
+    <string name="logs_filter_clear">Vymazat položky ve filtru</string>
+
+</resources>

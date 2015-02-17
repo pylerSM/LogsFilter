@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/app_settings" >
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="logs"
+            android:title="@string/logs" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="logs_filter"
+            android:title="@string/logs_filter" />
+
+        <EditTextPreference
+            android:key="logs_filter_add"
+            android:persistent="false"
+            android:title="@string/logs_filter_add" />
+
+        <MultiSelectListPreference
+            android:key="logs_filter_manage"
+            android:title="@string/logs_filter_manage" />
+
+        <Preference
+            android:key="logs_filter_clear"
+            android:title="@string/logs_filter_clear" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

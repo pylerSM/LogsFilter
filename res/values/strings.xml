@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Logs Filter</string>
+    <string name="app_description">Filter private information from logs</string>
+    <string name="app_settings">Logs filter settings</string>
+    <string name="logs">Logs</string>
+    <string name="logs_filter">Logs filter</string>
+    <string name="logs_filter_add">Add item to filter</string>
+    <string name="logs_filter_manage">Manage items in filter</string>
+    <string name="logs_filter_clear">Clear items in filter</string>
+</resources>

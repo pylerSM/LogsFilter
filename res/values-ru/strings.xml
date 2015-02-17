@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Фильтр журнала</string>
+    <string name="app_description">Удаляет личную информацию из журнала Android.</string>
+    <string name="app_settings">Настройки фильтра журнала</string>
+    <string name="logs">Журнал</string>
+    <string name="logs_filter">Фильтр журнала</string>
+    <string name="logs_filter_add">Добавить фильтр</string>
+    <string name="logs_filter_manage">Управление фильтрами</string>
+    <string name="logs_filter_clear">Удалить фильтры</string>
+
+</resources>
