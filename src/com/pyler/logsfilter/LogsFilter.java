@@ -13,7 +13,7 @@ public class LogsFilter implements IXposedHookZygoteInit {
 	public static final String LOGS_FILTER_MANAGE = "logs_filter_manage";
 	public static final String LOGS_FILTER = "logs_filter";
 	public static final String LOGS = "logs";
-	public static final String EMPTY_LOG = "";
+	public static final String EMPTY = "";
 	public XSharedPreferences prefs;
 	public XC_MethodHook logsHook;
 
@@ -33,7 +33,7 @@ public class LogsFilter implements IXposedHookZygoteInit {
 					return;
 				}
 				if (!logs) {
-					param.args[1] = EMPTY_LOG;
+					param.args[1] = EMPTY;
 					return;
 				}
 				if (!logsFilter) {
@@ -62,7 +62,7 @@ public class LogsFilter implements IXposedHookZygoteInit {
 		}
 		for (String item : items) {
 			if (filteredLog.contains(item)) {
-				filteredLog = filteredLog.replaceAll(item, "");
+				filteredLog = filteredLog.replaceAll(item, EMPTY);
 			}
 		}
 		return filteredLog;

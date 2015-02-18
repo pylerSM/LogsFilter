@@ -32,7 +32,7 @@ public class Settings extends PreferenceActivity {
 						String text = (String) newValue;
 						addLogsFilter(text);
 						reloadLogsFilter();
-						return true;
+						return false;
 					}
 				});
 		clearLogsFilter
