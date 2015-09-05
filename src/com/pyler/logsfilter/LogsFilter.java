@@ -16,27 +16,32 @@ public class LogsFilter implements IXposedHookZygoteInit {
 	public static final String EMPTY = "";
 	public XSharedPreferences prefs;
 	public XC_MethodHook logsHook;
+	public boolean mLogs;
+	public boolean mLogsFilter;
+	public Set<String> mLogsFilterItems;
 
 	@Override
 	public void initZygote(StartupParam startupParam) throws Throwable {
 		prefs = new XSharedPreferences(LogsFilter.class.getPackage().getName());
 		prefs.makeWorldReadable();
+		mLogs = prefs.getBoolean(LOGS, true);
+		mLogsFilter = prefs.getBoolean(LOGS_FILTER, false);
+		mLogsFilterItems = prefs.getStringSet(LOGS_FILTER_MANAGE,
+				new HashSet<String>());
 
 		logsHook = new XC_MethodHook() {
 			@Override
 			protected void beforeHookedMethod(MethodHookParam param)
 					throws Throwable {
 				prefs.reload();
-				boolean logs = prefs.getBoolean(LOGS, true);
-				boolean logsFilter = prefs.getBoolean(LOGS_FILTER, false);
 				if (!(param.args[1] instanceof String)) {
 					return;
 				}
-				if (!logs) {
+				if (!mLogs) {
 					param.args[1] = EMPTY;
 					return;
 				}
-				if (!logsFilter) {
+				if (!mLogsFilter) {
 					return;
 				}
 				String log = (String) param.args[1];
@@ -55,12 +60,10 @@ public class LogsFilter implements IXposedHookZygoteInit {
 	public String filterLog(String log) {
 		String filteredLog = log;
 		prefs.reload();
-		Set<String> items = prefs.getStringSet(LOGS_FILTER_MANAGE,
-				new HashSet<String>());
-		if (items.isEmpty()) {
+		if (mLogsFilterItems.isEmpty()) {
 			return filteredLog;
 		}
-		for (String item : items) {
+		for (String item : mLogsFilterItems) {
 			if (filteredLog.contains(item)) {
 				filteredLog = filteredLog.replaceAll(item, EMPTY);
 			}
